@@ -1,0 +1,145 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #010B13;
+    color: #7c3aed;
+    padding: 2rem;
+}
+
+h1 {
+    color: #ea580c;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+/* Search */
+.search-section {
+    margin-bottom: 1.5rem;
+}
+
+.search-section input {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #444;
+    border-radius: 6px;
+    background: #0a0a0a;
+    color: #ea580c;
+    font-size: 1rem;
+    width: 220px;
+}
+
+.search-section button,
+.pokedex-button-section button {
+    padding: 0.5rem 1rem;
+    background-color: #ea580c;
+    color: #0a0a0a;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 0.5rem;
+}
+
+.search-section button:hover,
+.pokedex-button-section button:hover {
+    background-color: #e09510;
+}
+
+/* Error */
+p[style], p:has(+ p) {
+    color: #7c3aed;
+}
+
+/* Pokemon card */
+.pokemon-card {
+    background: #2a2a3e;
+    border: 1px solid #3a3a5e;
+    border-radius: 10px;
+    padding: 1.25rem;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    min-width: 260px;
+}
+
+.pokemon-card p {
+    margin-bottom: 0.35rem;
+    font-size: 0.95rem;
+}
+
+.pokemon-card img {
+    width: 80px;
+    height: 80px;
+    margin-right: 0.5rem;
+}
+
+.pokemon-card a {
+    display: inline-block;
+    margin-top: 0.75rem;
+    color: #7c3aed;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.pokemon-card a:hover {
+    text-decoration: underline;
+}
+
+/* Evolution list */
+.evolution-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.evolution-card {
+    background: #2a2a3e;
+    border: 1px solid #3a3a5e;
+    border-radius: 10px;
+    padding: 1rem;
+    min-width: 200px;
+    max-width: 240px;
+}
+
+.evolution-card p {
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+}
+
+.evolution-card img {
+    width: 72px;
+    height: 72px;
+    margin-right: 0.4rem;
+}
+
+/* Pokedex grid */
+.pokedex-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.pokedex-section a img {
+    width: 80px;
+    height: 80px;
+    background: #2a2a3e;
+    border: 1px solid #4c1d95;
+    border-radius: 8px;
+    transition: transform 0.15s;
+}
+
+.pokedex-section a img:hover {
+    transform: scale(1.1);
+    border-color: #f5a623;
+}
+
+/* Misc */
+.pokedex-button-section {
+    margin-top: 1.5rem;
+}

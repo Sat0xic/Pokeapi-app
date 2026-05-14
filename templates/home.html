@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pokemon Tracker</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        {% if current_user.is_authenticated %}
+        <p>Welcome, {{ current_user.username }}</p>
+        <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
+        {% endif %}
+        <h1>Search A Pokemon!</h1>
+
+        <div class="search-section">
+            <form method="GET" action="/search">
+                <input type="text" name="query" placeholder="search">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if pokemon_data %}
+        <div class="pokemon-card">
+            <p>pokedex#: {{ pokemon_data.id }}</p>
+            <p>Name: {{ pokemon_data.name }}</p>
+            <p>Type: {{ pokemon_data.type1 }}</p>
+            <p>Secondary-Type: {{ pokemon_data.type2 }}</p>
+            <p>Height: {{ pokemon_data.height }}</p>
+            <p>Weight: {{ pokemon_data.weight }}</p>
+            <p>Ability: {{ pokemon_data.ability1 }}</p>
+            <p>Ability2: {{ pokemon_data.ability2 }}</p>
+            <p>Hidden-Ability: {{ pokemon_data.hidden }}</p>
+            <p>HP: {{ pokemon_data.hp }}</p>
+            <p>Attack: {{ pokemon_data.attack }}</p>
+            <p>Defense: {{ pokemon_data.defense }}</p>
+            <p>Special-Attack: {{ pokemon_data.special_attack }}</p>
+            <p>Special-Defense: {{ pokemon_data.special_defense }}</p>
+            <p>Speed: {{ pokemon_data.speed }}</p>
+            <img src="{{ pokemon_data.sprite }}" alt="{{ pokemon_data.name }}">
+            <img src="{{ pokemon_data.shiny_sprite }}" alt="{{ pokemon_data.name }}">
+            <br>
+            <a href="/evolutions/{{ pokemon_data.id }}">Evolutions</a>
+        </div>
+        {% endif %}
+
+        <div class="pokedex-button-section">
+            <form method="GET" action="/pokedex">
+                <button type="submit">Show Pokedex</button>
+            </form>
+        </div>
+
+        {% if evolution_stats %}
+        <div class="evolution-list">
+            {% for pokemon in evolution_stats %}
+            <div class="evolution-card">
+                <p>pokedex#: {{ pokemon.id }}</p>
+                <p>Name: {{ pokemon.name }}</p>
+                <p>Type: {{ pokemon.type1 }}</p>
+                <p>Secondary-Type: {{ pokemon.type2 }}</p>
+                <p>Height: {{ pokemon.height }}</p>
+                <p>Weight: {{ pokemon.weight }}</p>
+                <p>Ability1: {{ pokemon.ability1 }}</p>
+                <p>Ability2: {{ pokemon.ability2 }}</p>
+                <p>Hidden-Ability: {{ pokemon.hidden }}</p>
+                <p>HP: {{ pokemon.hp }}</p>
+                <p>Attack: {{ pokemon.attack }}</p>
+                <p>Defense: {{ pokemon.defense }}</p>
+                <p>Special-Attack: {{ pokemon["special-attack"] }}</p>
+                <p>Special-Defense: {{ pokemon["special-defense"] }}</p>
+                <p>Speed: {{ pokemon.speed }}</p>
+                <img src="{{ pokemon.sprite }}" alt="{{ pokemon.name }}">
+                <img src="{{ pokemon.shiny_sprite }}" alt="{{ pokemon.name }}">
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if evolve_error %}
+            <p class="error">{{ evolve_error }}</p>
+        {% endif %}
+
+    </body>
+</html>
