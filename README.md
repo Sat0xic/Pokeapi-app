@@ -1,49 +1,41 @@
-# PokeAPI App
+PokeAPI Flask App
+A full-stack web application built with Flask that allows users to search for Pokémon, view stats, browse a personal Pokédex, and explore evolution chains — all backed by a SQLite database.
+Features
 
-A command-line Python app that retrieves data on any Pokemon by name using the [PokéAPI](https://pokeapi.co/).
+User registration and login with hashed passwords (Flask-Login + Bcrypt)
+Search any Pokémon by name via the PokéAPI
+Displays type, height, weight, abilities, base stats, and sprites (including shiny)
+Saves searched Pokémon to a local SQLite database automatically
+Personal Pokédex page showing all previously searched Pokémon
+Evolution chain viewer with full stats for each stage
 
-## Features
-- Displays National Pokédex number, type, height, weight, and abilities
-- Shows base stats with a visual bar representation
-- Optional evolution chain lookup
+Technologies Used
 
-- ## Example Output
+Python / Flask
+SQLAlchemy ORM (SQLite)
+Flask-Login, Flask-Bcrypt
+PokéAPI (free, open REST API)
+Jinja2 templating
+HTML/CSS
 
-  
-- Enter Pokemon Name: pikachu
-Pokemon: pikachu
-National Pokedex # 25
-Type: electric
-Height: 4.0
-Weight: 60.0
-Ability: static
-Hidden: lightning-rod
-hp 35
-***
-attack 55
-*****
-defense 40
-****
-special-attack 50
-*****
-special-defense 50
-*****
-speed 90
-*********
-Would you like the evolution(s)? Y/N: y
-pichu --> pikachu --> raichu
+How to Run
 
+Clone the repository
+Install dependencies:
 
-## Technologies Used
-- Python
-- [requests](https://pypi.org/project/requests/) library
-- [PokéAPI](https://pokeapi.co/) (free, open REST API)
+pip install flask flask-bcrypt flask-login sqlalchemy requests
 
-## How to Run
-1. Install dependencies:
-2. pip install requests
+Run the app:
 
-## What I Learned
-- Making HTTP requests to a REST API using `requests`
-- Parsing and navigating nested JSON responses
-- Chaining multiple API calls to retrieve evolution data
+python Poke_API.py
+
+Visit http://127.0.0.1:5000 in your browser
+Register an account and start searching
+
+What I Learned
+
+Building full-stack web apps with Flask and Jinja2 templating
+User authentication with hashed passwords and session management
+Persisting API data to a relational database using SQLAlchemy ORM
+Chaining multiple API calls to retrieve and display evolution chains
+Structuring a Flask app with routes, models, and templates
